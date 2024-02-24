@@ -52,7 +52,7 @@ export default (sequelize: any, DataTypes: IDataTypes): IUser => {
         allowNull: false,
         validate: {
           isIn: {
-            args: [['admin', 'user']],
+            args: [['admin', 'user', 'god']],
             msg: 'Invalid role',
           },
         },
