@@ -12,6 +12,8 @@ import { $server } from '../config'
 import resolvers from './graphql/resolvers'
 import typeDefs from './graphql/types'
 import models from './models'
+console.log('Current working directory:', process.cwd())
+console.log('Module paths:', module.paths)
 
 const app = express()
 const httpServer = http.createServer(app)

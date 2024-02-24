@@ -2,7 +2,7 @@
   "name": "apollo",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "index.ts",
   "scripts": {
     "dev": "ts-node-dev src/index.ts",
     "build": "rm -rf dist && tsc -p . --traceResolution",

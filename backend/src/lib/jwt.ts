@@ -5,7 +5,7 @@ import { IUser } from '../types'
 const { secretKey } = $security
 
 export function jwtVerify(accessToken: string, cb: any): void {
-  // verifying our JWT token using the accessToken adn the secret Key
+  // verifying our JWT token using the accessToken and the secret Key
   jwt.verify(accessToken, secretKey, (error: any, accessTokenData: any = {}) => {
     const { data: user } = accessTokenData
     // if we get an error or the user is not found we return false
