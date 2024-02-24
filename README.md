@@ -1,1 +1,2 @@
-Just playing with GraphQL and Apollo
+## Just playing with GraphQL and Apollo
+### Grinding
