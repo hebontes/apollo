@@ -34,7 +34,7 @@ export default gql`
     role: String!
   }
   input LoginInput {
-    emailOrUsername: String!
+    email: String!
     password: String!
   }
 `
