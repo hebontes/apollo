@@ -3,7 +3,7 @@ import cors from 'cors'
 import express, { Application, Request, Response } from 'express'
 import html from './html'
 import * as config from '../config'
-import { isConnected } from './lib/middlewares/user'
+import { isConnected } from './server/lib/middlewares/user'
 // Express App
 const app: Application = express()
 const distDir = resolve('dir')
