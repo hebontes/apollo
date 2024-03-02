@@ -4,6 +4,7 @@ export type User = {
   role: string
   password: string
   active: boolean
+  id: string
 }
 
 export type Sequelize = {

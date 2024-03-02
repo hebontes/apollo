@@ -1,17 +1,25 @@
 import { doLogin, getUserBy } from '../../lib/auth'
 import { getUserData } from '../../lib/jwt'
-import { ILoginInput, IModels, IToken, IUser, ICreateUserInput } from '../../types'
+import {
+  ILoginInput,
+  IModels,
+  IToken,
+  IUser,
+  ICreateUserInput,
+  User,
+} from '../../types'
 
 export default {
   Query: {
-    getUsers: (_: any, args: any, ctx: { models: IModels }): IUser[] => ctx.models.User.findAll(),
+    getUsers: (_: any, args: any, ctx: { models: IModels }): IUser[] =>
+      ctx.models.User.findAll(),
     getUser: async (
       _: any,
       args: { at: string },
       { models }: { models: IModels }
     ): Promise<any> => {
       // Get current connected user
-      const connectedUser = await getUserData(args.at)
+      const connectedUser: User = await getUserData(args.at)
       if (connectedUser) {
         // Validating if the user is still valid
         const user = await getUserBy(
@@ -39,9 +47,15 @@ export default {
     },
   },
   Mutation: {
-    createUser: (_: any, { input }: { input: ICreateUserInput }, ctx: { models: IModels }): IUser =>
-      ctx.models.User.create({ ...input }),
-    login: (_: any, { input }: { input: ILoginInput }, ctx: { models: IModels }): Promise<IToken> =>
-      doLogin(input.email, input.password, ctx.models),
+    createUser: (
+      _: any,
+      { input }: { input: ICreateUserInput },
+      ctx: { models: IModels }
+    ): IUser => ctx.models.User.create({ ...input }),
+    login: (
+      _: any,
+      { input }: { input: ILoginInput },
+      ctx: { models: IModels }
+    ): Promise<IToken> => doLogin(input.email, input.password, ctx.models),
   },
 }

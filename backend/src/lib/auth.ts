@@ -18,7 +18,7 @@ export const doLogin = async (
 ): Promise<IToken> => {
   const user = await getUserBy({ email }, models)
   if (!user) {
-    throw new Error('Invalid Login`')
+    throw new Error('Invalid Login')
   }
 
   const passwordMatch = isPasswordMatch(encrypt(password), user.password)
